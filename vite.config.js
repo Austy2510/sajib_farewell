@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/jugantor-farewell/', // Replace with your GitHub repository name
+  base: '/sajib_farewell/', // Replace with your GitHub repository name
 })

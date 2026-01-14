@@ -83,7 +83,20 @@ export default function Timeline() {
                             animate={enterAnimation}
                             exit={exitAnimation}
                             transition={{ duration: 0.8 }}
-                            style={{ position: 'absolute', width: '100%', left: 0, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem' }}
+                            style={{
+                                position: 'absolute',
+                                width: '100%',
+                                left: 0,
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                flexWrap: 'wrap',
+                                gap: '4rem',
+                                padding: '0 2rem',
+                                zIndex: 10
+                            }}
                         >
                             <div className="stat-card glass">
                                 <div className="stat-value gradient-text">
