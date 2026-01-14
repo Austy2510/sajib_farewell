@@ -65,13 +65,9 @@ export default function Timeline() {
                             exit={exitAnimation}
                             transition={{ duration: 0.8 }}
                             style={{
-                                position: 'absolute',
                                 width: '100%',
-                                left: 0,
-                                top: '50%',
-                                transform: 'translateY(-50%)',
                                 padding: '0 1rem',
-                                zIndex: 10
+                                textAlign: 'center'
                             }}
                         >
                             <h2 className="section-title">
@@ -91,12 +87,7 @@ export default function Timeline() {
                             animate={enterAnimation}
                             exit={exitAnimation}
                             transition={{ duration: 0.8 }}
-                            style={{
-                                position: 'absolute',
-                                left: 0,
-                                top: '40%',
-                                transform: 'translateY(-50%)',
-                            }}
+                            style={{ width: '100%' }}
                         >
                             <div className="stat-card glass">
                                 <div className="stat-value gradient-text">
