@@ -86,25 +86,16 @@ export default function Timeline() {
                     {phase === 2 && (
                         <motion.div
                             key="phase-2"
-                            className="timeline-stats"
+                            className="timeline-stats-centered"
                             initial={initialAnimation}
                             animate={enterAnimation}
                             exit={exitAnimation}
                             transition={{ duration: 0.8 }}
                             style={{
                                 position: 'absolute',
-                                width: '100%',
                                 left: 0,
                                 top: '50%',
                                 transform: 'translateY(-50%)',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                flexWrap: 'wrap',
-                                gap: '4rem',
-                                padding: '0 2rem',
-                                zIndex: 10,
-                                maxWidth: '100%'
                             }}
                         >
                             <div className="stat-card glass">

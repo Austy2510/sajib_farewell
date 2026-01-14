@@ -35,9 +35,28 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
-    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.timeline-stats-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    padding: 0 2rem;
+    width: 100%;
+    max-width: 100%;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .timeline-stats-centered {
+        gap: 1.5rem;
+        padding: 0 1rem;
+        flex-direction: column;
+    }
 }
 
 .stat-card {
