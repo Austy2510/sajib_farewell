@@ -95,7 +95,8 @@ export default function Timeline() {
                                 flexWrap: 'wrap',
                                 gap: '4rem',
                                 padding: '0 2rem',
-                                zIndex: 10
+                                zIndex: 10,
+                                maxWidth: '100%'
                             }}
                         >
                             <div className="stat-card glass">
