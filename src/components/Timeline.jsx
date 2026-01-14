@@ -64,7 +64,15 @@ export default function Timeline() {
                             animate={enterAnimation}
                             exit={exitAnimation}
                             transition={{ duration: 0.8 }}
-                            style={{ position: 'absolute', width: '100%', left: 0, padding: '0 1rem' }}
+                            style={{
+                                position: 'absolute',
+                                width: '100%',
+                                left: 0,
+                                top: '50%',
+                                transform: 'translateY(-50%)',
+                                padding: '0 1rem',
+                                zIndex: 10
+                            }}
                         >
                             <h2 className="section-title">
                                 Our Journey <ShinyText><span className="gradient-text">Together</span></ShinyText>

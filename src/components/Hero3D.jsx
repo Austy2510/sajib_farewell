@@ -142,7 +142,7 @@ export default function Hero3D() {
                         <motion.div
                             key="phase-2"
                             className="hero-description-container"
-                            style={{ minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                            style={{ minHeight: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={exitAnimation}

@@ -97,7 +97,7 @@ export default function Farewell() {
                                     animate={enterAnimation}
                                     exit={exitAnimation}
                                     transition={{ duration: 0.8 }}
-                                    style={{ width: '100%' }}
+                                    style={{ width: '100%', textAlign: 'center' }}
                                 >
                                     <p>
                                         <TypewriterText text="Dear Sajib," delay={500} speed={40} />
