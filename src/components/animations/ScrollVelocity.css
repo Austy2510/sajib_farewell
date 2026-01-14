@@ -1,0 +1,38 @@
+.scroll-velocity-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.scroll-velocity-track {
+    display: flex;
+    /* gap: 2rem; REMOVED to fix jump at 50% wrap */
+    position: relative;
+    will-change: transform;
+}
+
+.scroll-velocity-text {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: linear-gradient(90deg,
+            rgba(99, 102, 241, 0.3) 0%,
+            rgba(236, 72, 153, 0.3) 50%,
+            rgba(245, 158, 11, 0.3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+    margin-right: 2rem;
+    /* Added margin for spacing */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+@media (max-width: 768px) {
+    .scroll-velocity-text {
+        font-size: 2rem;
+    }
+}

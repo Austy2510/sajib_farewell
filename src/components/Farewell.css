@@ -1,0 +1,156 @@
+/* ============================================
+   FAREWELL SECTION
+   ============================================ */
+
+.farewell-section {
+    position: relative;
+    background: linear-gradient(180deg,
+            rgba(30, 41, 59, 0.3) 0%,
+            var(--background) 50%,
+            rgba(79, 70, 229, 0.05) 100%);
+    overflow: hidden;
+}
+
+/* Floating Hearts Background */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    opacity: 0.2;
+    filter: blur(1px);
+}
+
+/* Farewell Content */
+.farewell-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.farewell-card {
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.farewell-icon {
+    font-size: clamp(5rem, 10vw, 8rem);
+    margin-bottom: var(--spacing-lg);
+    filter: drop-shadow(0 12px 40px rgba(99, 102, 241, 0.5)) drop-shadow(0 0 80px rgba(245, 158, 11, 0.3));
+    animation: float 4s ease-in-out infinite;
+}
+
+.farewell-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.farewell-message {
+    text-align: left;
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 400;
+}
+
+.farewell-message p {
+    margin-bottom: var(--spacing-md);
+}
+
+.farewell-message p:first-of-type {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.scripture {
+    background: rgba(79, 70, 229, 0.05);
+    border-left: 4px solid var(--primary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-sm);
+    font-style: italic;
+    margin: var(--spacing-lg) 0;
+    color: var(--text-primary);
+}
+
+.quote-mark {
+    font-size: 2rem;
+    color: var(--primary);
+    font-family: Georgia, serif;
+    line-height: 0;
+}
+
+.scripture strong {
+    display: block;
+    margin-top: var(--spacing-sm);
+    font-style: normal;
+    color: var(--primary-light);
+    font-size: 0.9375rem;
+}
+
+.signature {
+    text-align: center;
+    font-size: 1.125rem;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signature strong {
+    font-size: 1.25rem;
+    display: block;
+    margin-top: var(--spacing-xs);
+}
+
+.farewell-cta {
+    margin-top: var(--spacing-lg);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .farewell-card {
+        padding: var(--spacing-md);
+    }
+
+    .farewell-icon {
+        font-size: 4rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .farewell-title {
+        font-size: 2rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .farewell-message {
+        font-size: 0.9375rem;
+        line-height: 1.7;
+    }
+
+    .scripture {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+        font-size: 0.9375rem;
+    }
+
+    .quote-mark {
+        font-size: 1.5rem;
+    }
+}

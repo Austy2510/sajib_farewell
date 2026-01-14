@@ -1,0 +1,260 @@
+/* ============================================
+   HERO SECTION - 3D LANDING
+   ============================================ */
+
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--background);
+}
+
+/* 3D Canvas */
+.canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Gradient Overlay */
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(3, 7, 18, 0.3) 0%, rgba(3, 7, 18, 0.9) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1000px;
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 0 80px rgba(99, 102, 241, 0.5),
+        0 0 120px rgba(236, 72, 153, 0.3),
+        0 4px 40px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.hero-title span {
+    display: inline-block;
+    filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.6));
+}
+
+.hero-subtitle {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+}
+
+.hero-subtitle h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.hero-subtitle .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite, float 4s ease-in-out infinite;
+    text-shadow: 0 10px 40px rgba(236, 72, 153, 0.4);
+    filter: drop-shadow(0 0 60px rgba(245, 158, 11, 0.5));
+    letter-spacing: 0.02em;
+}
+
+.hero-description {
+    max-width: 800px;
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    line-height: 2;
+    color: var(--text-secondary);
+    margin: var(--spacing-lg) 0;
+    font-weight: 300;
+    text-align: center;
+}
+
+/* Date Badges */
+.hero-dates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+.date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(30, 41, 59, 0.3) 100%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(40px) saturate(180%);
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg), var(--shadow-glow-primary), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.date-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.date-badge:hover::before {
+    left: 100%;
+}
+
+.date-badge:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: var(--shadow-xl), var(--shadow-glow-primary), var(--shadow-glow-gold);
+    border-color: rgba(245, 158, 11, 0.5);
+}
+
+.date-label {
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.date-value {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+}
+
+.date-separator {
+    font-size: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: var(--spacing-sm);
+        margin-top: -60px;
+        /* Pull content up slightly on mobile */
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .hero-dates {
+        gap: var(--spacing-md);
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .date-badge {
+        padding: 1.5rem;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .date-separator {
+        transform: rotate(90deg);
+        font-size: 1.5rem;
+        margin: -10px 0;
+    }
+
+    .scroll-indicator {
+        margin-top: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-subtitle .name {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}

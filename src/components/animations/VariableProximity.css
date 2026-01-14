@@ -1,0 +1,6 @@
+.variable-proximity-text {
+    display: inline-block;
+    transition: font-weight 0.15s ease-out;
+    font-variation-settings: 'wght' var(--font-weight, 400);
+    cursor: default;
+}
