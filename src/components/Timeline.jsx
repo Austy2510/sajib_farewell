@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import CountUp from './animations/CountUp';
 import ScrollReveal from './animations/ScrollReveal';
 import ShinyText from './animations/ShinyText';
+import LiquidEther from './animations/LiquidEther';
 import './Timeline.css';
 
 export default function Timeline() {
@@ -54,7 +55,28 @@ export default function Timeline() {
 
     return (
         <section className="timeline-section section">
-            <div className="container" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            {/* Liquid Ether Background */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                pointerEvents: 'none',
+                opacity: 0.3
+            }}>
+                <LiquidEther
+                    colors={['#8B5CF6', '#EC4899', '#F59E0B']}
+                    mouseForce={35}
+                    cursorSize={150}
+                    autoDemo={true}
+                    autoSpeed={0.4}
+                    autoIntensity={3.0}
+                    resolution={0.6}
+                />
+            </div>
+            <div className="container" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
                 <AnimatePresence mode="wait">
                     {phase === 1 && (
                         <motion.div

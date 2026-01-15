@@ -2,6 +2,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TypewriterText from './animations/TypewriterText';
+import LiquidEther from './animations/LiquidEther';
 import './Farewell.css';
 
 export default function Farewell() {
@@ -27,6 +28,27 @@ export default function Farewell() {
 
     return (
         <section className="farewell-section section" ref={ref}>
+            {/* Liquid Ether Background */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                pointerEvents: 'none',
+                opacity: 0.3
+            }}>
+                <LiquidEther
+                    colors={['#8B5CF6', '#EC4899', '#F59E0B']}
+                    mouseForce={35}
+                    cursorSize={150}
+                    autoDemo={true}
+                    autoSpeed={0.4}
+                    autoIntensity={3.0}
+                    resolution={0.6}
+                />
+            </div>
             {/* Floating Hearts Background - Persists across phases */}
             <div className="hearts-container">
                 {[...Array(15)].map((_, i) => (

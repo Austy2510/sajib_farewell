@@ -40,6 +40,7 @@ function ParticleField(props) {
 }
 
 import TypewriterText from './animations/TypewriterText';
+import DarkVeil from './animations/DarkVeil';
 
 // Scroll indicator component
 function ScrollIndicator({ delay }) {
@@ -91,6 +92,27 @@ export default function Hero3D() {
 
     return (
         <section className="hero-section">
+            {/* Dark Veil Background */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                pointerEvents: 'none'
+            }}>
+                <DarkVeil
+                    speed={0.5}
+                    hueShift={0}
+                    noiseIntensity={0.02}
+                    scanlineIntensity={0.1}
+                    scanlineFrequency={0.01}
+                    warpAmount={0}
+                    resolutionScale={0.8}
+                />
+            </div>
+
             {/* 3D Canvas Background */}
             <div className="canvas-container">
                 <Canvas camera={{ position: [0, 0, 1] }}>

@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import VariableProximity from './animations/VariableProximity';
 import ShinyText from './animations/ShinyText';
+import LiquidEther from './animations/LiquidEther';
 import './MessageBoard.css';
 
 export default function MessageBoard() {
@@ -32,7 +33,28 @@ export default function MessageBoard() {
 
     return (
         <section className="message-board-section section" ref={sectionRef}>
-            <div className="container">
+            {/* Liquid Ether Background */}
+            <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                zIndex: 0,
+                pointerEvents: 'none',
+                opacity: 0.3
+            }}>
+                <LiquidEther
+                    colors={['#8B5CF6', '#EC4899', '#F59E0B']}
+                    mouseForce={35}
+                    cursorSize={150}
+                    autoDemo={true}
+                    autoSpeed={0.4}
+                    autoIntensity={3.0}
+                    resolution={0.6}
+                />
+            </div>
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 <motion.div
                     className="message-board-header"
                     initial={{ opacity: 0, y: 30 }}
