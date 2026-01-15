@@ -70,13 +70,13 @@ export default function Hero3D() {
                 pointerEvents: 'none'
             }}>
                 <DarkVeil
-                    speed={0.5}
-                    hueShift={0}
-                    noiseIntensity={0.02}
-                    scanlineIntensity={0.1}
-                    scanlineFrequency={0.01}
-                    warpAmount={0}
-                    resolutionScale={0.8}
+                    speed={0.6}
+                    hueShift={180}
+                    noiseIntensity={0.01}
+                    scanlineIntensity={0.05}
+                    scanlineFrequency={0.005}
+                    warpAmount={0.2}
+                    resolutionScale={1}
                 />
             </div>
 
