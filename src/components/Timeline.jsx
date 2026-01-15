@@ -2,14 +2,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CountUp from './animations/CountUp';
-import ScrollReveal from './animations/ScrollReveal';
 import ShinyText from './animations/ShinyText';
 import LiquidEther from './animations/LiquidEther';
+import TrueFocus from './TrueFocus/TrueFocus';
 import './Timeline.css';
 
 export default function Timeline() {
     const navigate = useNavigate();
     const [phase, setPhase] = useState(1);
+    const [currentCardIndex, setCurrentCardIndex] = useState(0);
+    const cardRefs = useRef([]);
 
     useEffect(() => {
         const timer1 = setTimeout(() => setPhase(2), 5000);
@@ -48,6 +50,30 @@ export default function Timeline() {
             icon: '🕊️'
         }
     ];
+
+    // Auto-scroll to current card when it changes
+    useEffect(() => {
+        if (phase === 3 && cardRefs.current[currentCardIndex]) {
+            cardRefs.current[currentCardIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    }, [currentCardIndex, phase]);
+
+    // Auto-advance cards with delay
+    useEffect(() => {
+        if (phase !== 3) return;
+
+        const interval = setInterval(() => {
+            setCurrentCardIndex(prev => {
+                const nextIndex = (prev + 1) % milestones.length;
+                return nextIndex;
+            });
+        }, 5000); // 5 seconds per card
+
+        return () => clearInterval(interval);
+    }, [phase, milestones.length]);
 
     const exitAnimation = { opacity: 0, y: -20, filter: 'blur(10px)', transition: { duration: 0.5 } };
     const enterAnimation = { opacity: 1, y: 0, filter: 'blur(0px)' };
@@ -138,34 +164,40 @@ export default function Timeline() {
                             animate={enterAnimation}
                             transition={{ duration: 0.8 }}
                         >
-                            {/* Timeline */}
-                            <div className="timeline">
-                                {milestones.map((milestone, index) => (
-                                    <ScrollReveal
-                                        key={index}
-                                        direction={index % 2 === 0 ? 'left' : 'right'}
-                                        delay={0.2 + index * 0.2}
-                                    >
-                                        <div className="timeline-item">
-                                            <motion.div
-                                                className="timeline-content card-glass"
-                                                whileHover={{
-                                                    scale: 1.05,
-                                                    rotateY: 5,
-                                                    z: 50
-                                                }}
-                                                transition={{ type: "spring", stiffness: 300 }}
-                                            >
-                                                <div className="timeline-icon">{milestone.icon}</div>
-                                                <div className="timeline-date">{milestone.date}</div>
-                                                <h3 className="timeline-title">{milestone.title}</h3>
-                                                <p className="timeline-description">{milestone.description}</p>
-                                            </motion.div>
-                                            <div className="timeline-dot"></div>
-                                        </div>
-                                    </ScrollReveal>
-                                ))}
-                                <div className="timeline-line"></div>
+                            {/* Timeline Cards - Centered, No Line */}
+                            <div className="timeline-centered">
+                                {milestones.map((milestone, index) => {
+                                    const isActive = index === currentCardIndex;
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            ref={el => (cardRefs.current[index] = el)}
+                                            className="timeline-card-centered card-glass"
+                                            animate={{
+                                                scale: isActive ? 1.05 : 0.95,
+                                                opacity: isActive ? 1 : 0.5,
+                                                filter: isActive ? 'blur(0px)' : 'blur(2px)'
+                                            }}
+                                            transition={{ duration: 0.5 }}
+                                        >
+                                            <div className="timeline-icon">{milestone.icon}</div>
+                                            <div className="timeline-date">{milestone.date}</div>
+                                            <div className="timeline-title-container">
+                                                <TrueFocus
+                                                    sentence={milestone.title}
+                                                    manualMode={!isActive}
+                                                    blurAmount={3}
+                                                    borderColor="#EC4899"
+                                                    glowColor="rgba(236, 72, 153, 0.6)"
+                                                    animationDuration={0.5}
+                                                    pauseBetweenAnimations={1}
+                                                    fontSize="2rem"
+                                                />
+                                            </div>
+                                            <p className="timeline-description">{milestone.description}</p>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
 
                             <motion.div
@@ -181,7 +213,7 @@ export default function Timeline() {
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => navigate('/farewell')}
                                 >
-                                    Next: Blessings & Farewell 🕊️
+                                    Next: Blessings &amp; Farewell 🕊️
                                 </motion.button>
                             </motion.div>
                         </motion.div>

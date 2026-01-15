@@ -94,46 +94,29 @@
     padding: var(--spacing-lg) 0;
 }
 
-.timeline-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg,
-            transparent 0%,
-            var(--primary) 20%,
-            var(--secondary) 80%,
-            transparent 100%);
-    transform: translateX(-50%);
-    z-index: 0;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: var(--spacing-xl);
+/* Centered Timeline Layout */
+.timeline-centered {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+}
+
+.timeline-card-centered {
+    width: 100%;
+    max-width: 500px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.timeline-title-container {
+    margin: var(--spacing-sm) 0;
+    display: flex;
     justify-content: center;
-}
-
-.timeline-item:nth-child(odd) .timeline-content {
-    margin-right: auto;
-    margin-left: 0;
-    transform-origin: right center;
-}
-
-.timeline-item:nth-child(even) .timeline-content {
-    margin-left: auto;
-    margin-right: 0;
-    transform-origin: left center;
-}
-
-.timeline-content {
-    width: calc(50% - 40px);
-    padding: var(--spacing-md);
-    position: relative;
-    z-index: 2;
 }
 
 .timeline-icon {
@@ -166,21 +149,6 @@
     color: var(--text-secondary);
 }
 
-.timeline-dot {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    border: 4px solid var(--background);
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2), var(--shadow-glow);
-    z-index: 3;
-    animation: pulse 2s ease-in-out infinite;
-}
-
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
@@ -191,36 +159,12 @@
         gap: var(--spacing-sm);
     }
 
-    .timeline-line {
-        left: 20px;
-        background: linear-gradient(180deg,
-                transparent 0%,
-                var(--primary) 10%,
-                var(--secondary) 90%,
-                transparent 100%);
+    .timeline-centered {
+        padding: var(--spacing-md) 1rem;
     }
 
-    .timeline-item {
-        justify-content: flex-start;
-        padding-left: 50px;
-        /* Reduced from 60px */
-        margin-bottom: var(--spacing-lg);
-    }
-
-    .timeline-item:nth-child(odd) .timeline-content,
-    .timeline-item:nth-child(even) .timeline-content {
-        width: 100%;
-        margin: 0;
-        text-align: left;
-    }
-
-    .timeline-dot {
-        left: 20px;
-    }
-
-    .timeline-content {
-        width: 100%;
-        padding: var(--spacing-sm);
+    .timeline-card-centered {
+        padding: var(--spacing-md);
     }
 
     .timeline-icon {
