@@ -54,6 +54,12 @@
     margin-top: 4rem;
     padding: 3rem 0;
     text-align: center;
+    position: relative;
+    display: block;
+    clear: both;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.8) 0%, rgba(26, 16, 37, 0.4) 50%, rgba(10, 10, 15, 0.8) 100%);
+    border-radius: 20px;
+    z-index: 20;
 }
 
 .video-highlight-header {
@@ -125,27 +131,86 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .gallery-section {
-        padding: 2rem 1rem;
+        padding: 1.5rem 0.75rem;
     }
 
     .gallery-header .section-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .gallery-header .section-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .masonry-container {
-        min-height: 500px;
+        min-height: 400px;
+    }
+
+    .video-highlight-section {
+        margin-top: 2rem;
+        padding: 2rem 0;
+        position: relative;
+        z-index: 10;
+        clear: both;
     }
 
     .video-highlight-title {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .video-highlight-subtitle {
+        font-size: 0.9rem;
     }
 
     .video-container {
-        margin: 0 1rem;
+        margin: 0 0.5rem;
+        max-width: 100%;
+    }
+
+    .highlight-star {
+        font-size: 1.2rem;
+    }
+
+    .gallery-navigation {
+        margin-top: 2rem;
+        padding-bottom: 3rem;
+    }
+
+    .gallery-navigation .btn {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .gallery-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .gallery-header .section-title {
+        font-size: 1.5rem;
+    }
+
+    .gallery-header .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .video-highlight-title {
+        font-size: 1.1rem;
+    }
+
+    .video-container {
+        padding: 3px;
+        border-radius: 12px;
+    }
+
+    .highlight-video {
+        border-radius: 10px;
     }
 }

@@ -60,8 +60,8 @@ const Masonry = ({
     colorShiftOnHover = false
 }) => {
     const columns = useMedia(
-        ['(min-width:1200px)', '(min-width:900px)', '(min-width:600px)', '(min-width:400px)'],
-        [4, 3, 2, 2],
+        ['(min-width:1200px)', '(min-width:768px)', '(min-width:480px)'],
+        [4, 3, 2],
         1
     );
 
@@ -102,13 +102,13 @@ const Masonry = ({
         preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
     }, [items]);
 
-    const grid = useMemo(() => {
-        if (!width) return [];
+    const { grid, containerHeight } = useMemo(() => {
+        if (!width) return { grid: [], containerHeight: 0 };
 
         const colHeights = new Array(columns).fill(0);
         const columnWidth = width / columns;
 
-        return items.map(child => {
+        const gridItems = items.map(child => {
             const col = colHeights.indexOf(Math.min(...colHeights));
             const x = columnWidth * col;
             const height = child.height / 2;
@@ -118,6 +118,10 @@ const Masonry = ({
 
             return { ...child, x, y, w: columnWidth, h: height };
         });
+
+        const maxHeight = Math.max(...colHeights);
+
+        return { grid: gridItems, containerHeight: maxHeight };
     }, [columns, items, width]);
 
     const hasMounted = useRef(false);
@@ -214,7 +218,7 @@ const Masonry = ({
     };
 
     return (
-        <div ref={containerRef} className="masonry-list">
+        <div ref={containerRef} className="masonry-list" style={{ height: containerHeight || 'auto' }}>
             {grid.map(item => {
                 return (
                     <div
