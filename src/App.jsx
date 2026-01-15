@@ -3,7 +3,7 @@ import Hero3D from './components/Hero3D';
 import Timeline from './components/Timeline';
 import Farewell from './components/Farewell';
 import MessageBoard from './components/MessageBoard';
-import LiquidEther from './components/animations/LiquidEther';
+import DarkVeil from './components/animations/DarkVeil';
 import './styles/index.css';
 
 function App() {
@@ -18,17 +18,17 @@ function App() {
           width: '100%',
           height: '100%',
           zIndex: 0,
-          pointerEvents: 'auto',
+          pointerEvents: 'none',
           opacity: 0.4
         }}>
-          <LiquidEther
-            colors={['#8B5CF6', '#EC4899', '#F59E0B']}
-            mouseForce={35}
-            cursorSize={150}
-            autoDemo={true}
-            autoSpeed={0.4}
-            autoIntensity={3.0}
-            resolution={0.6}
+          <DarkVeil
+            speed={0.5}
+            hueShift={0}
+            noiseIntensity={0.02}
+            scanlineIntensity={0.1}
+            scanlineFrequency={0.01}
+            warpAmount={0}
+            resolutionScale={0.8}
           />
         </div>
 
