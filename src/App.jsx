@@ -3,6 +3,7 @@ import Hero3D from './components/Hero3D';
 import Timeline from './components/Timeline';
 import Farewell from './components/Farewell';
 import MessageBoard from './components/MessageBoard';
+import Gallery from './components/Gallery';
 import './styles/index.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Hero3D />} />
             <Route path="/timeline" element={<Timeline />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/farewell" element={<Farewell />} />
             <Route path="/message-board" element={<MessageBoard />} />
           </Routes>
@@ -24,3 +26,4 @@ function App() {
 }
 
 export default App;
+

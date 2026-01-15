@@ -215,9 +215,9 @@ export default function Timeline() {
                                     className="btn btn-primary"
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
-                                    onClick={() => navigate('/farewell')}
+                                    onClick={() => navigate('/gallery')}
                                 >
-                                    Next: Blessings &amp; Farewell 🕊️
+                                    Next: Our Memories �
                                 </motion.button>
                             </motion.div>
                         </motion.div>
