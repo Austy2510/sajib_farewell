@@ -1,43 +1,10 @@
 import { useRef, useMemo, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
 import { motion, AnimatePresence } from 'framer-motion';
 import GradientText from './animations/GradientText';
 import ShinyText from './animations/ShinyText';
 import './Hero3D.css';
 
-
-// Particle system component
-function ParticleField(props) {
-    const ref = useRef();
-
-    // Generate random particle positions in a sphere
-    const sphere = useMemo(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }), []);
-
-    // Animate particles
-    useFrame((state, delta) => {
-        if (ref.current) {
-            ref.current.rotation.x -= delta / 10;
-            ref.current.rotation.y -= delta / 15;
-        }
-    });
-
-    return (
-        <group rotation={[0, 0, Math.PI / 4]}>
-            <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
-                <PointMaterial
-                    transparent
-                    color="#6366F1"
-                    size={0.005}
-                    sizeAttenuation={true}
-                    depthWrite={false}
-                />
-            </Points>
-        </group>
-    );
-}
 
 import TypewriterText from './animations/TypewriterText';
 import DarkVeil from './animations/DarkVeil';
@@ -113,12 +80,7 @@ export default function Hero3D() {
                 />
             </div>
 
-            {/* 3D Canvas Background */}
-            <div className="canvas-container">
-                <Canvas camera={{ position: [0, 0, 1] }}>
-                    <ParticleField />
-                </Canvas>
-            </div>
+
 
             {/* Gradient Overlay */}
             <div className="gradient-overlay"></div>
