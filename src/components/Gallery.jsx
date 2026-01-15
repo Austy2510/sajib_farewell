@@ -60,6 +60,34 @@ export default function Gallery() {
                     />
                 </motion.div>
 
+                {/* Video Highlight Section */}
+                <motion.div
+                    className="video-highlight-section"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5 }}
+                >
+                    <div className="video-highlight-header">
+                        <h3 className="video-highlight-title">
+                            <span className="highlight-star">⭐</span>
+                            Highlight Moment
+                            <span className="highlight-star">⭐</span>
+                        </h3>
+                        <p className="video-highlight-subtitle">A special memory with Sajib</p>
+                    </div>
+                    <div className="video-container">
+                        <video
+                            className="highlight-video"
+                            controls
+                            playsInline
+                            poster=""
+                        >
+                            <source src="./photos/highlight-video.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </motion.div>
+
                 <motion.div
                     className="gallery-navigation"
                     initial={{ opacity: 0 }}
