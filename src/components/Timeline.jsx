@@ -61,19 +61,23 @@ export default function Timeline() {
         }
     }, [currentCardIndex, phase]);
 
-    // Auto-advance cards with delay
+    // Auto-advance cards with delay - stops at last card
     useEffect(() => {
         if (phase !== 3) return;
 
         const interval = setInterval(() => {
             setCurrentCardIndex(prev => {
-                const nextIndex = (prev + 1) % milestones.length;
-                return nextIndex;
+                // If we're at the last card, don't advance
+                if (prev >= milestones.length - 1) {
+                    clearInterval(interval);
+                    return prev; // Stay at last card
+                }
+                return prev + 1;
             });
         }, 5000); // 5 seconds per card
 
         return () => clearInterval(interval);
-    }, [phase, milestones.length]);
+    }, [phase]); // Only depend on phase, not currentCardIndex
 
     const exitAnimation = { opacity: 0, y: -20, filter: 'blur(10px)', transition: { duration: 0.5 } };
     const enterAnimation = { opacity: 1, y: 0, filter: 'blur(0px)' };
