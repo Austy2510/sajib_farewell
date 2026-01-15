@@ -18,14 +18,17 @@ function App() {
           width: '100%',
           height: '100%',
           zIndex: 0,
-          pointerEvents: 'auto'
+          pointerEvents: 'auto',
+          opacity: 0.4
         }}>
           <LiquidEther
-            colors={['#6366F1', '#EC4899', '#F59E0B']}
-            mouseForce={25}
-            cursorSize={120}
+            colors={['#8B5CF6', '#EC4899', '#F59E0B']}
+            mouseForce={35}
+            cursorSize={150}
             autoDemo={true}
-            autoSpeed={0.3}
+            autoSpeed={0.4}
+            autoIntensity={3.0}
+            resolution={0.6}
           />
         </div>
 
