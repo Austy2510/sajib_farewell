@@ -105,8 +105,15 @@ const Masonry = ({
     const { grid, containerHeight } = useMemo(() => {
         if (!width) return { grid: [], containerHeight: 0 };
 
-        const colHeights = new Array(columns).fill(0);
-        const columnWidth = width / columns;
+        // Determine columns based on width if matchMedia isn't instant or for finer control
+        // Breakpoints: <390px: 1 col, 390px-768px: 2 cols, 768px-1200px: 3 cols, >1200px: 4 cols
+        let activeCols = 1;
+        if (width >= 1200) activeCols = 4;
+        else if (width >= 768) activeCols = 3;
+        else if (width >= 390) activeCols = 2; // Enabled 2 columns for 6"+ phones (approx 390px+ width)
+
+        const colHeights = new Array(activeCols).fill(0);
+        const columnWidth = width / activeCols;
 
         const gridItems = items.map(child => {
             const col = colHeights.indexOf(Math.min(...colHeights));

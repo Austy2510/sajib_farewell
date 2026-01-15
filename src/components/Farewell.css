@@ -191,17 +191,17 @@
     }
 
     .farewell-message {
-        font-size: 0.875rem;
-        line-height: 1.7;
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
     .farewell-intro,
     .farewell-outro {
-        padding: 0 0.5rem;
+        padding: 0 1rem;
     }
 
     .signature {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .signature strong {
